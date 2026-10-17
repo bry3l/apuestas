@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Apuestas - Deportes y Casino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sports.css">
+    <link rel="stylesheet" href="css/casino.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <button id="sidebar-toggle" class="btn-icon mobile-only" aria-label="Menu">☰</button>
+                <div class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">CYBER<span class="gold-sub">BET</span></span>
+                </div>
+                <div class="header-actions">
+                    <div class="balance-display">
+                        <span class="balance-icon">💰</span>
+                        <div class="balance-info">
+                            <span class="balance-label">MI BALANCE</span>
+                            <span id="balance-amount" class="balance-num">$1,000.00</span>
+                        </div>
+                    </div>
+                    <button id="deposit-btn" class="btn btn-primary"><span class="btn-glow"></span>+ Depositar</button>
+                    <button id="profile-btn" class="btn btn-secondary">👤 Perfil</button>
+                    <button id="bet-slip-toggle" class="btn btn-betslip">
+                        <span class="slip-icon">🎟️</span>
+                        <span class="slip-text">Cupón</span>
+                        <span id="bet-count-badge" class="badge-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-category-label">MENÚ PRINCIPAL</div>
+            <ul class="sidebar-menu">
+                <li><button class="sidebar-item active" data-section="sports"><span>⚽</span> Deportes <span class="nav-badge hot">HOT</span></button></li>
+                <li><button class="sidebar-item" data-section="casino"><span>🎰</span> Casino VIP <span class="nav-badge gold">500%</span></button></li>
+                <li><button class="sidebar-item" data-section="live"><span>📺</span> En Vivo <span class="nav-badge live">LIVE</span></button></li>
+                <li><button class="sidebar-item" data-section="promotions"><span>🎁</span> Promociones <span class="nav-badge">BONUS</span></button></li>
+            </ul>
+
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-category-label">LIGAS TOP</div>
+            <ul class="sidebar-menu top-leagues">
+                <li><button class="sidebar-subitem" data-league="Champions League">🏆 Champions League</button></li>
+                <li><button class="sidebar-subitem" data-league="La Liga">🇪🇸 La Liga</button></li>
+                <li><button class="sidebar-subitem" data-league="Premier League">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</button></li>
+                <li><button class="sidebar-subitem" data-league="NBA">🏀 NBA Basketball</button></li>
+            </ul>
+
+            <div class="sidebar-banner">
+                <div class="banner-title">CYBER VIP CLUB</div>
+                <p>Gana hasta 30% Cashback todos los lunes.</p>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Banner -->
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <span class="hero-badge">BONO VIP</span>
+                    <h1>BONO DE BIENVENIDA <span class="text-gold">+500%</span></h1>
+                    <p>En tus primeros 4 depósitos. ¡Domina el juego!</p>
+                    <button class="btn btn-primary btn-lg">OBTENER BONO</button>
+                </div>
+                <div class="hero-image">
+                    <div class="gold-glow"></div>
+                    <span class="big-icon">🚀</span>
+                </div>
+            </div>
+
+            <!-- Stats Ticker -->
+            <div class="stats-ticker">
+                <div class="ticker-item"><span class="icon">💎</span> Jackpot: <span class="value text-gold" id="jackpot-counter">$4,852,940.21</span></div>
+                <div class="ticker-item"><span class="icon">👤</span> Jugadores: <span class="value">12,450</span></div>
+                <div class="ticker-item"><span class="icon">🔥</span> Ganancia 24h: <span class="value text-gold">$1.2M+</span></div>
+            </div>
+
+            <!-- Sports Betting Section -->
+            <section id="sports-section" class="section active">
+                <div class="section-header">
+                    <h2><span class="icon">⚽</span> Apuestas Deportivas</h2>
+                    <div class="section-tabs">
+                        <button class="tab active" data-sport="upcoming">PRÓXIMOS</button>
+                        <button class="tab" data-sport="live">EN VIVO</button>
+                    </div>
+                </div>
+                <div id="sports-container" class="sports-container">
+                    <!-- Sports cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Casino Section -->
+            <section id="casino-section" class="section">
+                <div class="section-header">
+                    <h2><span class="icon">🎰</span> Casino VIP</h2>
+                    <div class="casino-tabs">
+                        <button class="tab active" data-game="slots">TRAGAMONEDAS</button>
+                        <button class="tab" data-game="roulette">RULETA</button>
+                        <button class="tab" data-game="blackjack">BLACKJACK</button>
+                        <button class="tab" data-game="crash">CRASH</button>
+                    </div>
+                </div>
+                <div id="casino-container" class="casino-container">
+                    <div id="slots-game" class="casino-game-wrapper"></div>
+                    <div id="roulette-game" class="casino-game-wrapper"></div>
+                    <div id="blackjack-game" class="casino-game-wrapper"></div>
+                    <div id="crash-game" class="casino-game-wrapper"></div>
+                </div>
+            </section>
+
+            <!-- Live Section -->
+            <section id="live-section" class="section">
+                <div class="section-header">
+                    <h2><span class="icon">📺</span> Eventos en Vivo</h2>
+                </div>
+                <div id="live-container" class="sports-container">
+                    <!-- Live sports cards will be injected here -->
+                </div>
+            </section>
+
+            <!-- Promotions Section -->
+            <section id="promotions-section" class="section">
+                <div class="section-header">
+                    <h2><span class="icon">🎁</span> Ofertas y Promociones</h2>
+                </div>
+                <div class="promotions-grid">
+                    <div class="promo-card gold-border">
+                        <div class="promo-badge">HOT</div>
+                        <h3>Cashback 30%</h3>
+                        <p>Recupera hasta el 30% de tus pérdidas semanales en casino.</p>
+                        <button class="btn btn-secondary btn-sm">SABER MÁS</button>
+                    </div>
+                    <div class="promo-card">
+                        <h3>Bono Express</h3>
+                        <p>Aumenta tus cuotas hasta un 15% en apuestas combinadas.</p>
+                        <button class="btn btn-secondary btn-sm">SABER MÁS</button>
+                    </div>
+                    <div class="promo-card">
+                        <h3>Torneo Slots</h3>
+                        <p>Participa en el torneo semanal y gana parte de los $50,000.</p>
+                        <button class="btn btn-secondary btn-sm">UNIRSE</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Bet Slip -->
+        <aside id="bet-slip" class="bet-slip">
+            <div class="bet-slip-header">
+                <h3>Cupón de Apuestas</h3>
+                <button id="close-bet-slip" class="btn-close">&times;</button>
+            </div>
+            <div id="bet-slip-content" class="bet-slip-content">
+                <!-- Bet slip items will be injected here -->
+            </div>
+            <div class="bet-slip-footer">
+                <div id="potential-payout" class="potential-payout">
+                    Pago potencial: <span id="payout-amount">$0.00</span>
+                </div>
+                <button id="place-bet-btn" class="btn btn-success btn-block">Colocar Apuesta</button>
+            </div>
+        </aside>
+
+        <!-- Modals -->
+        <div id="modal-deposit" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Depositar Fondos</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <label for="deposit-amount" class="sr-only">Monto a depositar</label>
+                    <input type="number" id="deposit-amount" name="deposit-amount" placeholder="Monto a depositar (mínimo $1)" min="1" aria-describedby="deposit-help">
+                    <span id="deposit-help" class="sr-only">Introduce el monto que deseas depositar en dólares o euros</span>
+                    <button id="confirm-deposit" class="btn btn-primary btn-block">Confirmar Depósito</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-profile" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Mi Perfil</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="profile-info">
+                        <p><strong>Usuario:</strong> Jugador123</p>
+                        <p><strong>Nivel:</strong> 5</p>
+                        <p><strong>Experiencia:</strong> 2,450 XP</p>
+                    </div>
+                    <div class="transaction-history">
+                        <h4>Historial de Transacciones</h4>
+                        <div id="transaction-list" class="transaction-list">
+                            <!-- Transactions will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications Container -->
+        <div id="toast-container" class="toast-container"></div>
+    </div>
+
+    <script src="js/utils.js" type="module"></script>
+    <script src="js/state.js" type="module"></script>
+    <script src="js/components/header.js" type="module"></script>
+    <script src="js/components/sportsbetting.js" type="module"></script>
+    <script src="js/components/casino.js" type="module"></script>
+    <script src="js/components/betslip.js" type="module"></script>
+    <script src="js/components/wallet.js" type="module"></script>
+    <script src="js/games/slots.js" type="module"></script>
+    <script src="js/games/roulette.js" type="module"></script>
+    <script src="js/games/blackjack.js" type="module"></script>
+    <script src="js/games/crash.js" type="module"></script>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* Sports betting specific styles */
+
+/* Live odds animation */
+.odd-change.up {
+    animation: pulseGreen 1.5s infinite;
+}
+
+.odd-change.down {
+    animation: pulseRed 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulseRed {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Match detail modal */
+#match-detail-modal .modal-content {
+    max-height: 85vh;
+}
+
+.match-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.stat-box {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    text-align: center;
+}
+
+.stat-box h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-box p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.match-timeline {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.timeline-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.timeline-events {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.timeline-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.timeline-event:last-child {
+    border-bottom: none;
+}
+
+.timeline-icon {
+    width: 30px;
+    height: 30px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+}
+
+.timeline-icon.goal {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.timeline-icon.card {
+    background-color: var(--neon-red);
+    color: var(--text-primary);
+}
+
+.timeline-icon.sub {
+    background-color: var(--neon-cyan);
+    color: var(--bg-dark);
+}
+
+.timeline-event-content {
+    flex: 1;
+}
+
+.timeline-time {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-description {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.betting-options {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.betting-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: var(--transition-normal);
+}
+
+.betting-option:hover {
+    background-color: var(--bg-card-hover);
+    transform: translateY(-2px);
+}
+
+.betting-option-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.betting-option-label span:first-child {
+    font-weight: 600;
+}
+
+.betting-option-label span:second-child {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.betting-option-odd {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--neon-green);
+    padding: 0.25rem 0.75rem;
+    background-color: rgba(0, 255, 136, 0.1);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--neon-green);
+}
+
+/* Loading states */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255,255,255,0.2);
+    border-top-color: var(--neon-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Empty states */
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.empty-state p {
+    line-height: 1.6;
+    max-width: 400px;
+    margin: 0 auto;
+}

@@ -1,0 +1,514 @@
+/* Additional component-specific styles */
+
+/* Bet slip item styles */
+.bet-slip-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.bet-slip-item.active {
+    background-color: rgba(0, 255, 136, 0.1);
+    border-color: var(--neon-green);
+}
+
+.bet-slip-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.bet-slip-event {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.bet-slip-odd {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--neon-green);
+}
+
+.bet-slip-stake {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bet-slip-stake input {
+    width: 80px;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.bet-slip-stake input:focus {
+    outline: none;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 2px rgba(0, 255, 136, 0.2);
+}
+
+.bet-slip-remove {
+    background: none;
+    color: var(--neon-red);
+    font-size: 1.25rem;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+.bet-slip-remove:hover {
+    background-color: rgba(255, 0, 96, 0.2);
+    color: var(--text-primary);
+}
+
+/* Sports betting specific styles */
+.loading-skeleton {
+    height: 120px;
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    animation: shimmer 1.5s infinite;
+}
+
+/* Casino game specific styles */
+#slots-game, #roulette-game, #blackjack-game, #crash-game {
+    display: none;
+}
+
+#slots-game.active, #roulette-game.active, #blackjack-game.active, #crash-game.active {
+    display: block;
+}
+
+/* Slot machine specific */
+.slot-machine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.slot-reel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    min-width: 80px;
+    box-shadow: var(--box-shadow);
+}
+
+.slot-symbol {
+    font-size: 2.5rem;
+    margin: 0.25rem 0;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spin-button {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    box-shadow: var(--box-shadow-neon);
+}
+
+.spin-button:hover {
+    background-color: var(--neon-cyan);
+    transform: translateY(-2px);
+}
+
+.spin-button:active {
+    transform: translateY(0);
+}
+
+/* Roulette specific */
+.roulette-table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin: 2rem 0;
+}
+
+.roulette-wheel {
+    width: 250px;
+    height: 250px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    position: relative;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    border: 3px solid var(--neon-green);
+}
+
+.roulette-wheel::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--neon-red);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.roulette-ball {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: var(--neon-white);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    transition: top 0.1s ease, left 0.1s ease;
+}
+
+.roulette-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--bg-card);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.roulette-number:hover {
+    background-color: var(--bg-card-hover);
+    transform: scale(1.05);
+}
+
+.roulette-number.red {
+    color: var(--neon-red);
+}
+
+.roulette-number.black {
+    color: var(--text-primary);
+}
+
+.roulette-number.zero {
+    color: var(--neon-green);
+    background-color: var(--bg-card);
+}
+
+.roulette-board-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.roulette-board-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.roulette-board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.25rem;
+}
+
+/* Blackjack specific */
+.blackjack-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 2rem 0;
+    min-height: 300px;
+}
+
+.blackjack-hand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.blackjack-cards {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.blackjack-card {
+    width: 60px;
+    height: 90px;
+    background-color: var(--text-primary);
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.blackjack-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-card);
+    opacity: 0.1;
+    transition: opacity 0.2s ease;
+}
+
+.blackjack-card:hover::before {
+    opacity: 0.2;
+}
+
+.blackjack-card.red {
+    color: var(--neon-red);
+}
+
+.blackjack-card.black {
+    color: var(--bg-dark);
+}
+
+.blackjack-dealer {
+    margin-bottom: 2rem;
+}
+
+.blackjack-dealer-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--neon-green);
+}
+
+.blackjack-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.blackjack-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.blackjack-btn.hit {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.blackjack-btn.hit:hover {
+    background-color: var(--neon-cyan);
+}
+
+.blackjack-btn.stand {
+    background-color: var(--neon-red);
+    color: var(--text-primary);
+}
+
+.blackjack-btn.stand:hover {
+    background-color: rgba(255, 0, 96, 0.8);
+}
+
+.blackjack-btn.double {
+    background-color: var(--neon-gold);
+    color: var(--bg-dark);
+}
+
+.blackjack-btn.double:hover {
+    background-color: #e6b800;
+}
+
+.blackjack-btn.split {
+    background-color: var(--neon-purple);
+    color: var(--text-primary);
+}
+
+.blackjack-btn.split:hover {
+    background-color: #9900cc;
+}
+
+.blackjack-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Crash specific */
+.crash-container {
+    position: relative;
+    height: 300px;
+    margin: 2rem 0;
+}
+
+.crash-graph {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+
+.crash-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background-color: var(--neon-green);
+    transition: height 0.01s ease;
+}
+
+.crash-point {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--neon-green);
+    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    z-index: 10;
+}
+
+.crash-multiplier {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    z-index: 10;
+    font-family: var(--font-mono);
+}
+
+.crash-history {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.crash-history-item {
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.crash-history-item.win {
+    color: var(--neon-green);
+    background-color: rgba(0, 255, 136, 0.1);
+    border-color: var(--neon-green);
+}
+
+.crash-history-item.loss {
+    color: var(--neon-red);
+    background-color: rgba(255, 0, 96, 0.1);
+    border-color: var(--neon-red);
+}
+
+.crash-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.crash-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius-sm);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.crash-btn.cashout {
+    background-color: var(--neon-green);
+    color: var(--bg-dark);
+}
+
+.crash-btn.cashout:hover {
+    background-color: var(--neon-cyan);
+}
+
+.crash-btn.newbet {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.crash-btn.newbet:hover {
+    background-color: var(--bg-card-hover);
+}
+
+.crash-auto {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.crash-auto input {
+    width: 60px;
+    padding: 0.25rem 0.5rem;
+    background-color: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
